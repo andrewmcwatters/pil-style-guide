@@ -68,3 +68,49 @@ print(10)         --> 10
 --  comment. In the second example, the sequence ---[[ does not start a block
 --  comment; so, the print is outside comments. In this case, the last line
 --  becomes an independent comment, as it starts with --."
+
+-- https://www.lua.org/pil/2.4.html
+
+-- space after arguments
+
+a = "one string"
+b = string.gsub(a, "one", "another")  -- change string parts
+print(a)       --> one string
+print(b)       --> another string
+
+-- "We can delimit literal strings also by matching double square brackets
+--  [[...]]. Literals in this bracketed form may run for several lines, may
+--  nest, and do not interpret escape sequences. Moreover, this form ignores the
+--  first character of the string when this character is a newline. This form is
+--  especially convenient for writing strings that contain program pieces; for
+--  instance,"
+
+page = [[
+<HTML>
+<HEAD>
+<TITLE>An HTML Page</TITLE>
+</HEAD>
+<BODY>
+  <A HREF="http://www.lua.org">Lua</A>
+  [[a text between double brackets]]
+</BODY>
+</HTML>
+]]
+
+write(page)
+
+-- space before and after concatenation operator
+
+print(10 .. 20)        --> 1020
+
+-- "(The .. is the string concatenation operator in Lua. When you write it right
+--  after a numeral, you must separate them with a space; otherwise, Lua thinks
+--  that the first dot is a decimal point.)"
+
+-- "To convert a number to a string, you can call the function tostring or
+--  concatenate the number with the empty string:"
+
+print(tostring(10) == "10")   --> true
+print(10 .. "" == "10")       --> true
+
+-- "Such conversions are always valid."
