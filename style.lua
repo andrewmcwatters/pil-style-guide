@@ -114,3 +114,34 @@ print(tostring(10) == "10")   --> true
 print(10 .. "" == "10")       --> true
 
 -- "Such conversions are always valid."
+
+-- https://www.lua.org/pil/2.5.html
+
+-- no space before or after keys
+
+a = {}     -- create a table and store its reference in `a'
+k = "x"
+a[k] = 10        -- new entry, with key="x" and value=10
+a[20] = "great"  -- new entry, with key=20 and value="great"
+print(a["x"])    --> 10
+k = 20
+print(a[k])      --> "great"
+a["x"] = a["x"] + 1     -- increments entry "x"
+print(a["x"])    --> 11
+
+-- no space before or after var, exp1, exp2, or exp3 in numeric fors
+
+a = {}     -- empty table
+-- create 1000 new entries
+for i=1,1000 do a[i] = i*2 end
+print(a[9])    --> 18
+a["x"] = 10
+print(a["x"])  --> 10
+print(a["y"])  --> nil
+
+-- no spaces in <var-list> in generic fors
+
+-- print the lines
+for i,line in ipairs(a) do
+  print(line)
+end
