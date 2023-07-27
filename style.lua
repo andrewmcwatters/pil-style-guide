@@ -145,3 +145,9 @@ print(a["y"])  --> nil
 for i,line in ipairs(a) do
   print(line)
 end
+
+-- https://www.lua.org/pil/3.3.html
+
+-- space before and after relational operators
+
+max = (x > y) and x or y
