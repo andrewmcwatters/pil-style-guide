@@ -41,3 +41,30 @@ end
 print("enter a number:")
 a = io.read("*number")        -- read a number
 print(fact(a))
+
+-- https://www.lua.org/pil/1.3.html
+
+-- "You should avoid identifiers starting with an underscore followed by one or
+--  more uppercase letters (e.g., _VERSION); they are reserved for special uses
+--  in Lua. Usually, I reserve the identifier _ (a single underscore) for a
+--  dummy variable."
+
+-- "A comment starts anywhere with a double hyphen (--) and runs until the end
+--  of the line. Lua also offers block comments, which start with --[[ and run
+--  until the corresponding ]]. A common trick, when we want to comment out a
+--  piece of code, is to write the following:"
+
+--[[
+print(10)         -- no action (comment)
+--]]
+
+-- "Now, if we add a single hyphen to the first line, the code is in again:"
+
+---[[
+print(10)         --> 10
+--]]
+
+-- "In the first example, the -- in the last line is still inside the block
+--  comment. In the second example, the sequence ---[[ does not start a block
+--  comment; so, the print is outside comments. In this case, the last line
+--  becomes an independent comment, as it starts with --."
