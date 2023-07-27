@@ -151,3 +151,28 @@ end
 -- space before and after relational operators
 
 max = (x > y) and x or y
+
+-- https://www.lua.org/pil/3.6.html
+
+-- align wrapped table values to the first entry
+
+days = {"Sunday", "Monday", "Tuesday", "Wednesday",
+        "Thursday", "Friday", "Saturday"}
+
+-- no space before or after assignment operators in records
+
+a = {x=0, y=0}
+
+-- "You can always put a comma after the last entry. These trailing commas are
+--  optional, but are always valid:"
+
+a = {[1]="red", [2]="green", [3]="blue",}
+
+-- "Such flexibility makes it easier to write programs that generate Lua tables,
+--  because they do not need to handle the last element as a special case."
+
+-- "Finally, you can always use a semicolon instead of a comma in a constructor.
+--  We usually reserve semicolons to delimit different sections in a
+--  constructor, for instance to separate its list part from its record part:"
+
+{x=10, y=45; "one", "two", "three"}
